@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>USB Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>USB Timer</h1>
+
+    <section class="card status" id="statusCard">
+      <div class="label">Estado dos dispositivos USB</div>
+      <div class="big" id="phase">—</div>
+      <div class="countdown" id="countdown">--:--:--</div>
+      <div class="sub" id="nextAction"></div>
+    </section>
+
+    <section class="row">
+      <button id="btnOn" class="green">Ligar agora</button>
+      <button id="btnOff" class="red">Desligar agora</button>
+    </section>
+
+    <section class="card">
+      <label class="switch">
+        <input type="checkbox" id="auto" />
+        <span>Automação ativa</span>
+      </label>
+      <button id="btnRestart" class="ghost">Reiniciar contagem da fase atual</button>
+    </section>
+
+    <section class="card">
+      <h2>Configuração</h2>
+      <div class="grid">
+        <label>Ligado durante (min)
+          <input type="number" id="onMin" min="1" />
+        </label>
+        <label>Desligado durante (min)
+          <input type="number" id="offMin" min="1" />
+        </label>
+      </div>
+      <label class="check"><input type="checkbox" id="login" /> Iniciar com o Windows</label>
+      <label class="check"><input type="checkbox" id="exitOn" /> Religar USB ao fechar o app</label>
+      <button id="btnSave" class="blue">Guardar</button>
+    </section>
+
+    <div class="error" id="error"></div>
+    <p class="hint">Afeta apenas pendrives e discos USB. Teclado e rato não são desligados. Fechar a janela minimiza para a bandeja do sistema.</p>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>

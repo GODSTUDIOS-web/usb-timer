@@ -1,0 +1,29 @@
+{
+  "name": "usb-timer",
+  "version": "1.0.0",
+  "description": "Desliga e liga automaticamente dispositivos de armazenamento USB por ciclos de tempo",
+  "main": "main.js",
+  "author": "USB Timer",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis portable"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.usbtimer.app",
+    "productName": "USB Timer",
+    "files": ["main.js", "preload.js", "usb.js", "renderer/**/*"],
+    "win": {
+      "target": ["nsis", "portable"],
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
